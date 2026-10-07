@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <body>
+        <h1>JavaScript Promise Object</h1>
+        <h2>Promise Error Example</h2>
+        <p>Wait 3 seconds (3000 milliseconds) for result.</p>
+        <h1 id="demo"></h1>
+        <script>
+            const myH1 = document.getElementById('demo');
+            const myPromise = new Promise((resolve, reject) => {
+                let success = false;
+
+                setTimeout(() => {
+                    success
+                        ? resolve('Data loaded successfully')
+                        : reject(new Error('Failed to load'));
+                }, 3000);
+            });
+
+            myPromise
+                .then((data) => (myH1.textContent = data))
+                .catch((err) => (myH1.textContent = err));
+        </script>
+    </body>
+</html>

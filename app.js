@@ -1,17 +1,15 @@
 import createTodo from './utils/createTodo.js';
 
-const form = document.querySelector('form');
+const todoForm = document.getElementById('todoForm');
 const taskInput = document.getElementById('createTask');
-const taskList = document.getElementById('taskList');
+const todoList = document.getElementById('todoList');
 
-form.addEventListener('submit', (e) => {
+todoForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if (taskInput.value.trim() === "") {
-        return
+    if (taskInput.value.trim() === '') {
+        return;
     }
 
-
-
-    taskList.appendChild(createTodo(taskInput.value));
+    todoList.appendChild(createTodo(taskInput.value));
 });
