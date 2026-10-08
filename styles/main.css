@@ -1,7 +1,21 @@
 body {
     background-color: aqua;
+    box-sizing: border-box;
+}
+
+ul {
+    margin-top: 0;
+}
+
+input[type='checkbox'] {
+    margin-right: 10px;
 }
 
 .completed-todo {
     text-decoration: line-through;
+}
+
+.todolist-interface {
+    display: flex;
+    gap: 20px;
 }
