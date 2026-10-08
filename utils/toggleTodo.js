@@ -6,4 +6,6 @@ export default function toggleTodo(todos, todoId) {
 
         return todo;
     });
+
+    return todos;
 }

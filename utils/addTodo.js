@@ -1,6 +1,3 @@
-import saveTodos from './saveTodos.js';
-import renderTodos from './renderTodos.js';
-
 export default function addTodo(text, todos) {
     const newTodo = {
         id: crypto.randomUUID(),
@@ -8,8 +5,5 @@ export default function addTodo(text, todos) {
         completed: false,
     };
 
-    console.log(todos);
-    todos.push(newTodo);
-    saveTodos(todos);
-    renderTodos(todos);
+    return [...todos, newTodo];
 }

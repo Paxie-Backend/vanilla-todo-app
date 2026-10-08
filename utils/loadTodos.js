@@ -1,7 +1,7 @@
 export default function loadTodos() {
     const savedTodos = localStorage.getItem('todos');
-
-    if (!savedTodos) {
+    console.log('Loaded todos from localStorage:', savedTodos);
+    if (savedTodos === null) {
         return [];
     }
 
