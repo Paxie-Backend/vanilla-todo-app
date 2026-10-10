@@ -5,7 +5,6 @@ import saveTodos from './utils/saveTodos.js';
 
 let todos = loadTodos();
 const todoForm = document.getElementById('todoForm');
-const taskInputElement = document.getElementById('createTask');
 
 function updateTodos(nextTodos) {
     todos = nextTodos;
@@ -17,10 +16,12 @@ renderTodos(todos, updateTodos);
 
 todoForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const taskInputElement = e.target.children[1];
 
     if (taskInputElement.value.trim() === '') {
         return;
     }
+    console.dir(e.target.children[1].value);
 
     updateTodos(addTodo(taskInputElement.value, todos));
 
