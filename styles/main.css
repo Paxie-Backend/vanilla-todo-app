@@ -2,6 +2,7 @@
 @import url(./todo-form.css);
 @import url(./todo-section.css);
 @import url(./todo-item.css);
+@import url(./profile-app.css);
 
 * {
     margin: 0;

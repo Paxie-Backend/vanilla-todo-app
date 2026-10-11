@@ -1,0 +1,43 @@
+.app-header {
+    margin-bottom: 32px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: white;
+
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.profile-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.profile-position {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
