@@ -4,25 +4,46 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="./styles/main.css"></link>
+        <link rel="stylesheet" href="./styles/main.css" />
     </head>
     <body>
-        <h1>Todo App</h1>
-        <form id="todoForm">
-            <label for="createTask">Create a task:</label>
-            <input type="text" id="createTask" />
-            <button type="submit">Create</button>
-        </form>
-        <div class="todolist-interface">
-            <section class="todoList-container">
-                <h2>Daftar Todo</h2>
-                <ul id="todoList"></ul>
+        <main class="todo-app">
+            <section class="task-form">
+                <h2>Add Task</h2>
+                <form id="task-form">
+                    <textarea
+                        id="task-input"
+                        placeholder="Write your task here..."
+                        name="taskInput"
+                        required
+                    ></textarea>
+
+                    <label for="task-priority"> Priority: </label>
+
+                    <select id="task-priority" required>
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+
+                    <button type="submit">Submit</button>
+                </form>
             </section>
-            <section class="completedList-container">
-                <h2>Daftar Completed</h2>
-                <ul id="completedList"></ul>
+
+            <section class="todo-section">
+                <h2>To Do</h2>
+
+                <ul id="todo-list">
+                </ul>
+
+                <button id="delete-all-btn" type="button">Delete All</button>
             </section>
-        </div>
+
+            <section class="done-section">
+                <h2>Done</h2>
+                <ul id="done-list"></ul>
+            </section>
+        </main>
         <script type="module" src="./app.js" defer></script>
     </body>
 </html>

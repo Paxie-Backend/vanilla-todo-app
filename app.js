@@ -4,7 +4,9 @@ import renderTodos from './utils/renderTodos.js';
 import saveTodos from './utils/saveTodos.js';
 
 let todos = loadTodos();
-const todoForm = document.getElementById('todoForm');
+
+const taskForm = document.getElementById('task-form');
+const deleteAllBtn = document.getElementById('delete-all-btn');
 
 function updateTodos(nextTodos) {
     todos = nextTodos;
@@ -14,16 +16,22 @@ function updateTodos(nextTodos) {
 
 renderTodos(todos, updateTodos);
 
-todoForm.addEventListener('submit', (e) => {
+taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const taskInputElement = e.target.children[1];
+    const textAreaElement = e.target.children[0];
+    const selectElement = e.target.children[2];
 
-    if (taskInputElement.value.trim() === '') {
+    if (textAreaElement.value.trim() === '') {
         return;
     }
-    console.dir(e.target.children[1].value);
+    console.dir(e);
 
-    updateTodos(addTodo(taskInputElement.value, todos));
+    updateTodos(addTodo(textAreaElement.value, todos, selectElement.value));
 
-    taskInputElement.value = '';
+    textAreaElement.value = '';
+});
+
+deleteAllBtn.addEventListener('click', () => {
+    todos = [];
+    updateTodos(todos);
 });
