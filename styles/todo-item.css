@@ -156,3 +156,21 @@
     color: var(--color-text-muted);
     font-size: 0.8rem;
 }
+
+/* Due Date */
+
+.task-due-date {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+}
+
+.task-due-date.overdue {
+    color: var(--color-danger);
+    font-weight: 700;
+}
+
+.task-item:has(.overdue) {
+    border-color: #fecaca;
+    background-color: #fff7f7;
+}

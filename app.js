@@ -7,6 +7,7 @@ let todos = loadTodos();
 
 const taskForm = document.getElementById('task-form');
 const deleteAllBtn = document.getElementById('delete-all-btn');
+const dueDateInput = document.getElementById('task-due-date');
 
 function updateTodos(nextTodos) {
     todos = nextTodos;
@@ -26,9 +27,10 @@ taskForm.addEventListener('submit', (e) => {
     }
     console.dir(e);
 
-    updateTodos(addTodo(textAreaElement.value, todos, selectElement.value));
+    updateTodos(addTodo(textAreaElement.value, todos, selectElement.value, dueDateInput.value));
 
     textAreaElement.value = '';
+    dueDateInput.value = '';
 });
 
 deleteAllBtn.addEventListener('click', () => {

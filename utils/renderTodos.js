@@ -1,6 +1,7 @@
 import toggleTodo from './toggleTodo.js';
 import deleteTodo from './deleteTodo.js';
 import formatTaskDate from './formatTaskDate.js';
+import isTodoOverdue from './isTodoOverdue.js';
 
 export default function renderTodos(todos, onTodosChange) {
     const todoList = document.getElementById('todo-list');
@@ -46,9 +47,23 @@ export default function renderTodos(todos, onTodosChange) {
         todoDate.classList.add('task-date');
         todoDate.textContent = `Created: ${formatTaskDate(todo.createdAt)}`;
 
+        const dueDateElement = document.createElement('span');
+        dueDateElement.classList.add('task-due-date');
+
+        if (todo.dueDate) {
+            dueDateElement.textContent = `Due: ${formatTaskDate(todo.dueDate + 'T00:00:00')}`;
+        } else {
+            dueDateElement.textContent = 'No deadline';
+        }
+
+        if (isTodoOverdue(todo)) {
+            dueDateElement.classList.add('overdue');
+            dueDateElement.textContent += ' — Overdue';
+        }
+
         const todoDetails = document.createElement('div');
         todoDetails.classList.add('task-details');
-        todoDetails.append(todoText, todoDate);
+        todoDetails.append(todoText, todoDate, dueDateElement);
 
         liElement.append(checkbox, todoDetails, priority, deleteBtn);
 
