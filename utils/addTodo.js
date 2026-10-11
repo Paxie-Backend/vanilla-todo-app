@@ -4,6 +4,7 @@ export default function addTodo(text, todos, priority) {
         text: text.trim(),
         priority: priority,
         completed: false,
+        createdAt: new Date().toISOString(),
     };
 
     return [...todos, newTodo];

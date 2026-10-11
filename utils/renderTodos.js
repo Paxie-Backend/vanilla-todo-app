@@ -1,5 +1,6 @@
 import toggleTodo from './toggleTodo.js';
 import deleteTodo from './deleteTodo.js';
+import formatTaskDate from './formatTaskDate.js';
 
 export default function renderTodos(todos, onTodosChange) {
     const todoList = document.getElementById('todo-list');
@@ -23,9 +24,9 @@ export default function renderTodos(todos, onTodosChange) {
             onTodosChange(toggleTodo(todos, todo.id));
         });
 
-        const tasktext = document.createElement('span');
-        tasktext.textContent = todo.text;
-        tasktext.classList.add('task-text');
+        const todoText = document.createElement('span');
+        todoText.textContent = todo.text;
+        todoText.classList.add('task-text');
 
         const priority = document.createElement('span');
         priority.textContent = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
@@ -41,7 +42,15 @@ export default function renderTodos(todos, onTodosChange) {
             onTodosChange(deleteTodo(todos, todo.id));
         });
 
-        liElement.append(checkbox, tasktext, priority, deleteBtn);
+        const todoDate = document.createElement('span');
+        todoDate.classList.add('task-date');
+        todoDate.textContent = `Created: ${formatTaskDate(todo.createdAt)}`;
+
+        const todoDetails = document.createElement('div');
+        todoDetails.classList.add('task-details');
+        todoDetails.append(todoText, todoDate);
+
+        liElement.append(checkbox, todoDetails, priority, deleteBtn);
 
         todo.completed ? doneList.appendChild(liElement) : todoList.appendChild(liElement);
     });
