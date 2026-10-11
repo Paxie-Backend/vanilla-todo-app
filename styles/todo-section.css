@@ -1,0 +1,13 @@
+.todo-section,
+.done-section {
+    margin-bottom: 32px;
+}
+
+#todo-list,
+#done-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    list-style: none;
+}

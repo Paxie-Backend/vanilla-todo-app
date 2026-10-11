@@ -1,21 +1,83 @@
-body {
-    background-color: aqua;
+@import url(./todo-app.css);
+@import url(./todo-form.css);
+@import url(./todo-section.css);
+@import url(./todo-item.css);
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-ul {
-    margin-top: 0;
+:root {
+    --color-primary: #4f46e5;
+    --color-primary-hover: #4338ca;
+
+    --color-background: #f8fafc;
+    --color-surface: #ffffff;
+
+    --color-text: #1e293b;
+    --color-text-muted: #64748b;
+
+    --color-border: #e2e8f0;
+
+    --color-danger: #dc2626;
+    --color-danger-hover: #b91c1c;
+
+    --color-low: #16a34a;
+    --color-medium: #d97706;
+    --color-high: #dc2626;
+
+    --border-radius: 10px;
+    --shadow: 0 4px 12px rgb(15 23 42 / 5%);
 }
 
-input[type='checkbox'] {
-    margin-right: 10px;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    line-height: 1.5;
+    min-height: 100vh;
+
+    padding: 40px 20px;
 }
 
-.completed-todo {
-    text-decoration: line-through;
+button,
+textarea,
+select {
+    font: inherit;
 }
 
-.todolist-interface {
-    display: flex;
-    gap: 20px;
+button,
+select {
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    body {
+        min-width: 480px;
+        padding: 24px 12px;
+    }
+
+    .task-form-section {
+        padding: 16px;
+    }
+
+    .task-item {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .task-text {
+        flex-basis: calc(100% - 40px);
+    }
+
+    .task-priority {
+        margin-left: 28px;
+    }
+
+    .delete-btn {
+        margin-left: auto;
+    }
 }

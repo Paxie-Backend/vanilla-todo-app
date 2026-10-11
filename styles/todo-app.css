@@ -1,0 +1,11 @@
+.todo-app {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.todo-app h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
